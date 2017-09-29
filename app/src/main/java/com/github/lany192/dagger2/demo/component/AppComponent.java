@@ -1,10 +1,9 @@
 package com.github.lany192.dagger2.demo.component;
 
-import com.github.lany192.dagger2.demo.MyApp;
-
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
+import dagger.android.DaggerApplication;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 @Component(modules = {
@@ -16,10 +15,10 @@ import dagger.android.support.AndroidSupportInjectionModule;
 //        CoffeeModule.class,
 //        BookModule.class
 })
-public interface AppComponent extends AndroidInjector<MyApp> {
+public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
     @Component.Builder
-    abstract class Builder extends AndroidInjector.Builder<MyApp> {
+    abstract class Builder extends AndroidInjector.Builder<DaggerApplication> {
 
     }
 }
