@@ -1,10 +1,14 @@
 package com.github.lany192.dagger2.demo;
 
-import android.app.Application;
+import com.github.lany192.dagger2.demo.component.DaggerAppComponent;
 
-/**
- * Created by Administrator on 2017/9/27 0027.
- */
+import dagger.android.AndroidInjector;
+import dagger.android.DaggerApplication;
 
-public class MyApp extends Application {
+public class MyApp extends DaggerApplication {
+
+    @Override
+    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
+        return DaggerAppComponent.builder().create(this);
+    }
 }
