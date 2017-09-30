@@ -3,41 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/student_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="一个学生"
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
+        android:onClick="requestHttp"
+        android:text="请求Presenter" />
 
     <Button
-        android:id="@+id/teacher_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="一个老师"
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
+        android:onClick="gotoSecond"
+        android:text="SecondActivity" />
 
     <Button
-        android:id="@+id/class_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="一个班级"
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
-
-    <Button
-        android:id="@+id/food_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="一个食物"
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
+        android:onClick="gotoHello"
+        android:text="HelloActivity" />
 </LinearLayout>
