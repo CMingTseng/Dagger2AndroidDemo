@@ -14,17 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="requestHttp"
-        android:text="请求Presenter" />
+        android:text="MVP调用" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="gotoSecond"
-        android:text="SecondActivity" />
+        android:text="Second" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="gotoHello"
-        android:text="HelloActivity" />
+        android:text="Hello" />
 </LinearLayout>

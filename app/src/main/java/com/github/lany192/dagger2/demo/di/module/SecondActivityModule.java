@@ -10,6 +10,6 @@ public abstract class SecondActivityModule {
 
     @Provides
     static String provideName() {
-        return SecondActivity.class.getName();
+        return SecondActivity.class.getSimpleName();
     }
 }

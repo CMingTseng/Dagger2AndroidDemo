@@ -16,7 +16,7 @@ public abstract class MainActivityModule {
 
     @Provides
     static String provideName() {
-        return MainActivity.class.getName();
+        return MainActivity.class.getSimpleName();
     }
 
     @Provides

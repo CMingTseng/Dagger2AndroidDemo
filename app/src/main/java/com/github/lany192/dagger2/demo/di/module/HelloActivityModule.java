@@ -12,7 +12,7 @@ public abstract class HelloActivityModule{
 
     @Provides
     static String provideName() {
-        return HelloActivity.class.getName();
+        return HelloActivity.class.getSimpleName();
     }
 
     @Provides
