@@ -5,7 +5,7 @@ import com.github.lany192.dagger2.demo.mvp.activity.SecondActivity;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
+@Module(includes = BaseModule.class)
 public abstract class SecondActivityModule {
 
     @Provides

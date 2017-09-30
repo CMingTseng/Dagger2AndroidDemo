@@ -11,7 +11,7 @@ import dagger.Module;
 import dagger.Provides;
 
 
-@Module
+@Module(includes = BaseModule.class)
 public abstract class MainActivityModule {
 
     @Provides
