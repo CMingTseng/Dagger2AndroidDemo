@@ -2,7 +2,7 @@ package com.github.lany192.dagger2.demo.di.component;
 
 
 import com.github.lany192.dagger2.demo.MyApp;
-import com.github.lany192.dagger2.demo.di.module.AllActivityModule;
+import com.github.lany192.dagger2.demo.di.module.ActivityModule;
 
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
@@ -12,7 +12,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
-        AllActivityModule.class,
+        ActivityModule.class,
 })
 public interface MyAppComponent extends AndroidInjector<MyApp> {
 

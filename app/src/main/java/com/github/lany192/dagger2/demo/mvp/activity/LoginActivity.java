@@ -5,32 +5,33 @@ import android.content.Intent;
 import android.widget.TextView;
 
 import com.github.lany192.dagger2.demo.R;
+import com.github.lany192.dagger2.demo.mvp.presenter.LoginPresenter;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class SecondActivity extends BaseActivity {
-
+public class LoginActivity extends BaseActivity {
+    @BindView(R.id.haha)
+    TextView showText;
     @Inject
-    String className;
-
+    LoginPresenter presenter;
     @Inject
-    int random;
+    int number;
 
-    @BindView(R.id.tv_content)
-    TextView tv;
     public static void start(Context ctx) {
-        Intent i = new Intent(ctx, SecondActivity.class);
+        Intent i = new Intent(ctx, LoginActivity.class);
         ctx.startActivity(i);
     }
+
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_second;
+        return R.layout.activity_login;
     }
 
     @Override
     protected void init() {
-        tv.setText(className + "    \n随机数:" + random);
+        showText.setText(presenter.showToast() + "   " + number);
+
     }
 }
