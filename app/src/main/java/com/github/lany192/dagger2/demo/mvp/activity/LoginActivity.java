@@ -15,6 +15,7 @@ import com.github.lany192.dagger2.demo.mvp.contract.LoginContract;
 import com.github.lany192.dagger2.demo.mvp.presenter.LoginPresenter;
 import com.github.lany192.dagger2.demo.request.APIService;
 import com.lany.box.activity.BaseDaggerActivity;
+import com.lany.box.utils.JsonUtils;
 import com.lany.box.utils.RxUtils;
 
 import javax.inject.Inject;
@@ -77,7 +78,7 @@ public class LoginActivity extends BaseDaggerActivity implements LoginContract.V
 
                     @Override
                     public void onNext(AddressBean s) {
-                        Log.i(TAG, "onNext: " + s);
+                        Log.i(TAG, "onNext: " + JsonUtils.object2json(s));
                     }
                 });
     }
