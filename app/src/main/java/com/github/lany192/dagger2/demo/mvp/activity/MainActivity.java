@@ -3,6 +3,7 @@ package com.github.lany192.dagger2.demo.mvp.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,12 +12,13 @@ import com.github.lany192.dagger2.demo.R;
 import com.github.lany192.dagger2.demo.entity.Student;
 import com.github.lany192.dagger2.demo.mvp.contract.MainContract;
 import com.github.lany192.dagger2.demo.mvp.presenter.MainPresenter;
+import com.lany.box.activity.BaseDaggerActivity;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity implements MainContract.View {
+public class MainActivity extends BaseDaggerActivity implements MainContract.View {
     @Inject
     String className;
     @Inject
@@ -42,7 +44,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
     @Override
-    protected void init() {
+    protected void init(Bundle bundle) {
         tvContent.setText(className + "\n" +
                 s2.toString() + "\n" +
                 s1.toString());

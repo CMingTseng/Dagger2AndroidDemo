@@ -2,15 +2,17 @@ package com.github.lany192.dagger2.demo.mvp.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.TextView;
 
 import com.github.lany192.dagger2.demo.R;
+import com.lany.box.activity.BaseDaggerActivity;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class SecondActivity extends BaseActivity {
+public class SecondActivity extends BaseDaggerActivity {
 
     @Inject
     String className;
@@ -30,7 +32,7 @@ public class SecondActivity extends BaseActivity {
     }
 
     @Override
-    protected void init() {
+    protected void init(Bundle bundle) {
         tv.setText(className + "    \n随机数:" + random);
     }
 }

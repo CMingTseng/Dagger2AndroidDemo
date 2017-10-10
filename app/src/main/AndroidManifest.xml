@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.lany192.dagger2.demo">
-
+\
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".mvp.activity.SecondActivity" />
         <activity android:name=".mvp.activity.HelloActivity" />
-        <activity android:name=".mvp.activity.LoginActivity"></activity>
+        <activity android:name=".mvp.activity.LoginActivity"/>
     </application>
 
 </manifest>

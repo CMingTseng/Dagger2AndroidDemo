@@ -1,5 +1,8 @@
 package com.github.lany192.dagger2.demo.di.module;
 
+import com.github.lany192.dagger2.demo.request.APIService;
+import com.lany.box.interceptor.HttpLogInterceptor;
+
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
@@ -8,35 +11,43 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class ApiModule {
-    public static final String END_POINT = "https://www.baidu.com";
+    private final String BASE_URL = "https://lany192.github.io/json/";
 
     @Provides
     @Singleton
     public OkHttpClient provideOkHttpClient() {
-        OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(60 * 1000, TimeUnit.MILLISECONDS)
-                .readTimeout(60 * 1000, TimeUnit.MILLISECONDS)
+        HttpLogInterceptor logInterceptor = new HttpLogInterceptor();
+        logInterceptor.setLevel(HttpLogInterceptor.Level.BODY);
+
+        return new OkHttpClient
+                .Builder()
+                .addInterceptor(logInterceptor)
+                .retryOnConnectionFailure(true)
+                .connectTimeout(15, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
                 .build();
-        return client;
     }
 
     @Provides
     @Singleton
-    public  Retrofit provideRetrofit(OkHttpClient client) {
-        Retrofit retrofit = new Retrofit.Builder()
+    public Retrofit provideRetrofit(OkHttpClient client) {
+        return new Retrofit.Builder()
                 .client(client)
-                .baseUrl(END_POINT)
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
-        return retrofit;
     }
 
-//    @Provides
-//    @Singleton
-//    User provideUser() {
-//        return new User("name form ApiProvide");
-//    }
-
+    @Provides
+    @Singleton
+    public APIService provideAPIService(Retrofit retrofit) {
+        return retrofit.create(APIService.class);
+    }
 }
