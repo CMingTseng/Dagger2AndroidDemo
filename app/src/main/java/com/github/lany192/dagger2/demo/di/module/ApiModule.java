@@ -1,6 +1,9 @@
 package com.github.lany192.dagger2.demo.di.module;
 
+import android.util.Log;
+
 import com.github.lany192.dagger2.demo.request.APIService;
+import com.github.lany192.dagger2.demo.request.UserService;
 import com.lany.box.interceptor.HttpLogInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -16,6 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class ApiModule {
+    private final String TAG="ApiModule";
     private final String BASE_URL = "https://lany192.github.io/json/";
 
     @Provides
@@ -48,6 +52,15 @@ public class ApiModule {
     @Provides
     @Singleton
     public APIService provideAPIService(Retrofit retrofit) {
+        Log.i(TAG, "provideAPIService: ------------------------");
         return retrofit.create(APIService.class);
+    }
+
+
+    @Provides
+    @Singleton
+    public UserService provideUserService(Retrofit retrofit) {
+        Log.i(TAG, "provideUserService: ------------------------");
+        return retrofit.create(UserService.class);
     }
 }
